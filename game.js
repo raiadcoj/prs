@@ -23,17 +23,24 @@ function gameRound(playerSelection){
     cch.textContent = computerSelection.toUpperCase()
     let result
 
-    if (playerSelection == computerSelection) result = ("TIE!")
+    if (playerSelection == computerSelection) {
+        pch.style.backgroundColor='lightgrey'
+        result = ("TIE!")
+    }
     else if (playerSelection == "paper" && computerSelection == "scissors" || 
              playerSelection == "rock" && computerSelection == "paper" || 
-             playerSelection == "scissors" && computerSelection == "rock") 
-             result = "You Lose!"
+             playerSelection == "scissors" && computerSelection == "rock") {
+                result = "You Lose!";
+                pch.style.backgroundColor='lightpink';
+             }
+             
     else {
         result = "You Win!"
         wins++
+        pch.style.backgroundColor='lightgreen'
     }
 
-    return result
+    return result;
 
 
 }
