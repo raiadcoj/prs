@@ -42,35 +42,35 @@ function game(){
 
     paper.addEventListener('click', () => {
         input = "paper";
-        console.log(gameRound(input))
-        progress()
+        console.log(gameRound(input));
+        progress();
     });
     scissors.addEventListener('click', () => {
         input = "scissors";
-        console.log(gameRound(input))
-        progress()
+        console.log(gameRound(input));
+        progress();
     });
     rock.addEventListener('click', () => {
         input = "rock";
-        console.log(gameRound(input))
-        progress()
+        console.log(gameRound(input));
+        progress();
     });
 
     console.log("Round " + (rounds + 1) + "!")
 }
 
 function progress(){
-    console.log("You have won "+wins+" games.")
     rounds++
     if (rounds < 5){
-        console.log("Round " + (rounds + 1) + "!")
+        result.textContent = "ROUND "+ (rounds + 1) + "\nWINS: " + wins;
     }
     else {
-        console.log("Good game!");
+        result.textContent = "GAME OVER\nWINS: "+wins;
         paper.remove();
         rock.remove();
         scissors.remove();
     }
+
 }
 let rounds = 0
 let wins = 0
