@@ -1,3 +1,11 @@
+let input = ""
+const paper = document.querySelector('#paper')
+const scissors = document.querySelector ('#scissors')
+const rock = document.querySelector('#rock')
+const result = document.querySelector('#resultbox')
+const pch = document.querySelector('#playerchoice')
+const cch = document.querySelector('#computerchoice')
+
 function getComputerChoice(){
 
 let comproll = Math.floor(Math.random()*3);
@@ -9,9 +17,10 @@ else compchoice = "paper";
 return compchoice;
 }
 
-function gameRound(playerSelection,computerSelection){
-    let pc = ("You chose "+playerSelection+".\n")
-    let cc = ("The computer chose "+computerSelection+".\n")
+function gameRound(playerSelection){
+    let computerSelection = getComputerChoice()
+    pch.textContent = playerSelection.toUpperCase()
+    cch.textContent = computerSelection.toUpperCase()
     let result
 
     if (playerSelection == computerSelection) result = ("TIE!")
@@ -24,25 +33,47 @@ function gameRound(playerSelection,computerSelection){
         wins++
     }
 
-    return pc + cc + result
+    return result
 
 
 }
 
 function game(){
-    let rounds = 0
-    while (rounds < 5){
-        console.log("Round " + (rounds + 1) + "!")
-        let pc = prompt('Enter "paper","rock" or "scissors."');
-        pc = pc.toLowerCase();
-        while  (pc != "paper" && pc != "rock" && pc != "scissors") pc = prompt("Invalid choice. Please try again.");
-        let cc = getComputerChoice();
-        console.log(gameRound(pc,cc))
-        console.log("You have won "+wins+" games.")
-        rounds++
-    }
-    console.log("Good game!")
+
+    paper.addEventListener('click', () => {
+        input = "paper";
+        console.log(gameRound(input))
+        progress()
+    });
+    scissors.addEventListener('click', () => {
+        input = "scissors";
+        console.log(gameRound(input))
+        progress()
+    });
+    rock.addEventListener('click', () => {
+        input = "rock";
+        console.log(gameRound(input))
+        progress()
+    });
+
+    console.log("Round " + (rounds + 1) + "!")
 }
 
+function progress(){
+    console.log("You have won "+wins+" games.")
+    rounds++
+    if (rounds < 5){
+        console.log("Round " + (rounds + 1) + "!")
+    }
+    else {
+        console.log("Good game!");
+        paper.remove();
+        rock.remove();
+        scissors.remove();
+    }
+}
+let rounds = 0
 let wins = 0
+
 game()
+

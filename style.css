@@ -1,0 +1,61 @@
+body{
+    margin:0;
+    margin-top:50px;
+    padding:0;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+#gameconsole{
+    height: 600px;
+    width:400px;
+    background-color: grey;
+    padding:25px;
+}
+
+#resultbox{
+    display:flex;
+    height:200px;
+    width:350px;
+    background-color: lightgray;
+    margin:auto;
+    text-align: center;
+    font-size:48px;
+    align-items:center;
+    margin-bottom: 50px;
+}
+
+#choicebox{
+    display:flex;
+    flex-wrap: nowrap;
+    width: 400px;
+    height: 100px;
+    justify-content: space-between;
+}
+
+#playerchoice,
+#computerchoice{
+    display:flex;
+    height: 75px;
+    width: 150px;
+    background-color: lightgrey;
+    margin:auto;
+    text-align:center;
+    font-size:28px;
+    align-items:center;
+    justify-content: center;
+}
+
+#buttonbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{
+    margin:auto;
+    height:75px;
+    width:200px;
+    font-size:48px
+}
